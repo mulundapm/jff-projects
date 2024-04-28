@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* p {
+    display: inline-block;
+    margin: 0;
+}
+
+.list-item{
+    margin: 10px
+}
+
+.clear-btn{
+    margin: 20px
+}
+
+.hiden{
+    visibility: hidden;
+}
+
+
+.form{
+    padding: 50px;
+}
+
+.text-container{
+    height: 30px
+} */
