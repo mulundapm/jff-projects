@@ -15,7 +15,6 @@ numbers.forEach(function(number){
     number.addEventListener("click", function(e){
         console.log(e.target.value)
         display.value += e.target.value
-        num1 = display.value
     })
     }
 )
