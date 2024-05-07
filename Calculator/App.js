@@ -15,12 +15,13 @@ numbers.forEach(function(number){
     number.addEventListener("click", function(e){
         console.log(e.target.value)
         display.value += e.target.value
-        num1 = display.value
     })
     }
 )
 
 plus.addEventListener("click", function(){
+    num1 = display.value
     display.value="";
     
 })
+
