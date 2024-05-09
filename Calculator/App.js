@@ -4,24 +4,59 @@
 
 const display = document.querySelector(".numberDisplay")
 const numbers = document.querySelectorAll(".number")
-const plus = document.querySelector(".plus")
-const minus = document.querySelector(".minus")
-const times = document.querySelector(".times")
-const divide = document.querySelector(".divide")
-let num1
+const operators = document.querySelectorAll(".operator")
+const equal = document.querySelector(".equal")
+const cancel = document.querySelector(".cancel")
+const dot =document.querySelector(".dot")
 let num2
+let operatorFunction =""
+let result
 
 numbers.forEach(function(number){
     number.addEventListener("click", function(e){
-        console.log(e.target.value)
         display.value += e.target.value
     })
     }
 )
 
-plus.addEventListener("click", function(){
-    num1 = display.value
-    display.value="";
-    
+operators.forEach(function(operator){
+    operator.addEventListener("click", function(e){
+        if (operatorFunction === ""){
+            operatorFunction = e.target.id
+            result = parseFloat(display.value)
+            display.value="";}
+        else if(operatorFunction !== ""){
+            num2 = parseFloat(display.value)
+            performOperation();
+            operatorFunction = e.target.id
+            display.value="";
+            }
+    }) 
 })
 
+equal.addEventListener("click", function(){
+    num2 = parseFloat(display.value)
+    performOperation()
+    display.value = result
+    operatorFunction= ""
+})
+
+function performOperation(){
+    if (operatorFunction=== "plus"){
+        result= result+num2
+    } else if (operatorFunction=== "minus"){
+        result= result-num2
+    }else if (operatorFunction=== "times"){
+        result= result*num2
+    }else if (operatorFunction=== "divide"){
+        result= result/num2
+    }
+}
+
+
+cancel.addEventListener("click", function(){
+    num1 = 0
+    num2 = 0
+    display.value=""
+    operatorFunction= ""
+})
