@@ -17,6 +17,7 @@ function App() {
     setActiveCards([]);
     setWon(false);
     setClicks(0);
+    // still not able to reset the click when won, please help
   }
 
     if (activeCards.length === 0){
