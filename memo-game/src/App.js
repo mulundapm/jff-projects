@@ -1,10 +1,10 @@
 import './App.css';
 import Images from './images';
-import { useState , useEffect} from 'react';
+import { useState } from 'react';
 import { shuffle } from 'lodash';
 
 function App() {
-  const [cards, setCards] = useState([...Images, ...Images]);
+  const [cards, setCards] = useState(shuffle([...Images, ...Images]));
   const [clicks, setClicks] = useState(0)
   const [activeCards, setActiveCards] = useState([])
   const [foundPairs, setFoundPairs] = useState([])

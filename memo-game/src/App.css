@@ -20,7 +20,6 @@ body{
 
 
 .card{
-  border-radius: 5px;
   position: relative;
   width: 100%;
   height: 100%;
@@ -34,11 +33,14 @@ body{
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  border-radius: 5px;
 }
 
 .card .front img{
   display: block;
   max-width:100%;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .card .back{
