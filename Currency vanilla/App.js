@@ -2,7 +2,12 @@ const amount1 = document.getElementById('value1')
 const amount2 = document.getElementById('value2')
 const currency1 = document.getElementById('currency1')
 const currency2 = document.getElementById('currency2')
+const group1 = document.querySelectorAll(".group1")
+const group2 = document.querySelectorAll(".group2")
 let rates
+let rate1
+let rate2
+
 
 fetch('https://api.currencybeacon.com/v1/latest?api_key=wPMvk6TXDXOnqEKs8rJH0khNZfiBc3P1')
 .then(response => response.json())
@@ -20,11 +25,34 @@ function loadOption(){
     })
     currency1.value='USD'
     currency2.value='EUR'
-    amount2.value = amount1.value
-    //get the rate of currencies and compute the conversion
+    assignRate()
+    Math.round(amount2.value = amount1.value* rate2/rate1)
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-    
-})
+function getRate(rates, row){
+    return rates[row]
+}
+
+function assignRate(){
+    rate1= getRate(rates, currency1.value)
+    rate2= getRate(rates, currency2.value)
+}
+
+function computeValue2(){
+    assignRate()
+    Math.round(amount2.value = amount1.value* rate2/rate1)
+}
+
+function computeValue1(){
+    assignRate()
+    Math.round(amount1.value = amount2.value* rate1/rate2)
+}
+
+group1.forEach(input => addEventListener("change", function(){
+    computeValue2()
+}))
+
+group2.forEach(input => addEventListener("change", function(){
+    computeValue1()
+}))
 
