@@ -26,7 +26,7 @@ function loadOption(){
     currency1.value='USD'
     currency2.value='EUR'
     assignRate()
-    Math.round(amount2.value = amount1.value* rate2/rate1)
+    amount2.value = (amount1.value* rate2/rate1).toFixed(3)
 }
 
 function getRate(rates, row){
@@ -40,12 +40,12 @@ function assignRate(){
 
 function computeValue2(){
     assignRate()
-    Math.round(amount2.value = amount1.value* rate2/rate1)
+    amount2.value = (amount1.value* rate2/rate1).toFixed(3)
 }
 
 function computeValue1(){
     assignRate()
-    Math.round(amount1.value = amount2.value* rate1/rate2)
+    amount1.value = (amount2.value* rate1/rate2).toFixed(3)
 }
 
 group1.forEach(input => addEventListener("change", function(){
