@@ -21,7 +21,7 @@ function loadOption(){
     currency1.value='USD'
     currency2.value='EUR'
     amount2.value = amount1.value
-    console.log(currency1.value.keys)
+    //get the rate of currencies and compute the conversion
 }
 
 document.addEventListener("DOMContentLoaded", function(){
